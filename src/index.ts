@@ -4,6 +4,7 @@ import morgan from "morgan";
 import compression from "compression";
 import helmet from "helmet";
 import cors from "cors";
+import UserRoutes from "./routers/UserRoutes";
 
 class App {
     public app: Application;
@@ -23,15 +24,7 @@ class App {
     }
 
     protected routes(): void {
-        this.app.route("/").get((req:Request, res:Response)=>{
-            res.send("Hello Typescript")
-        })
-
-        this.app.route("/users").post((req:Request, res:Response)=>{
-            console.log(req.body);
-            
-            res.send(req.body)
-        })
+        this.app.use("/users", UserRoutes);
     }
 }
 
