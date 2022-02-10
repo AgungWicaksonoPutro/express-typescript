@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const morgan_1 = __importDefault(require("morgan"));
 class App {
     constructor() {
         this.app = (0, express_1.default)();
@@ -13,6 +14,7 @@ class App {
     }
     plugins() {
         this.app.use(body_parser_1.default.json());
+        this.app.use((0, morgan_1.default)("dev"));
     }
     routes() {
         this.app.route("/").get((req, res) => {
