@@ -24,7 +24,7 @@ class App {
         this.app.use((0, cors_1.default)());
     }
     routes() {
-        this.app.use("/users", UserRoutes_1.default);
+        this.app.use("/api/v1/users", UserRoutes_1.default);
     }
 }
 const port = 8000;
