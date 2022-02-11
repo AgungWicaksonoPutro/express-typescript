@@ -24,7 +24,7 @@ class App {
     }
 
     protected routes(): void {
-        this.app.use("/users", UserRoutes);
+        this.app.use("/api/v1/users", UserRoutes);
     }
 }
 
