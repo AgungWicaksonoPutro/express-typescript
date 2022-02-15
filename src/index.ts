@@ -1,10 +1,11 @@
-import express, {Application, Request, Response} from "express";
+import express, {Application} from "express";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import compression from "compression";
 import helmet from "helmet";
 import cors from "cors";
 import UserRoutes from "./routers/UserRoutes";
+import {config as dotenv} from "dotenv";
 
 class App {
     public app: Application;
@@ -13,6 +14,7 @@ class App {
         this.app = express();
         this.plugins();
         this.routes();
+        dotenv();
     }
 
     protected plugins(): void {
@@ -28,9 +30,10 @@ class App {
     }
 }
 
-const port: number = 8000;
-
 const app = new App().app;
+
+const port: any = process.env.PORT || 3000;
+
 app.listen(port, (): void =>{
     console.log(`Server running on port ${port}`);
 })
