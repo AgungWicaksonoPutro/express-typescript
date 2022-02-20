@@ -1,6 +1,7 @@
 import {Request, Response} from "express";
 import IController from "./ControllerInterface";
 
+
 class AuthController {
     index(req: Request, res: Response): Response {
         return res.send("Index");
@@ -10,5 +11,6 @@ class AuthController {
     }
     
 }
+
 
 export default new AuthController();
